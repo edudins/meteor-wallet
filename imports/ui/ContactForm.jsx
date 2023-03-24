@@ -6,10 +6,15 @@ export const ContactForm = () => {
     const [email, setEmail] = useState()
     const [imageURL, setImageURL] = useState()
     const saveContact = () => {
-        Meteor.call('contacts.insert', {name, email, imageURL})
-        setName("")
-        setEmail("")
-        setImageURL("")
+        Meteor.call('contacts.insert', {name, email, imageURL}, (errorResponse) => {
+            if (errorResponse) {
+                alert(errorResponse.error)
+            } else {
+                setName("")
+                setEmail("")
+                setImageURL("")
+            }
+        })
     }
 
     return (
