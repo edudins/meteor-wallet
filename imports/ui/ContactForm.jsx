@@ -1,15 +1,35 @@
 import React, {useState} from "react"
 import {Meteor} from "meteor/meteor"
+import {ErrorAlert} from "./components/ErrorAlert"
+import {SuccessAlert} from "./components/SuccessAlert"
 
 export const ContactForm = () => {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [imageURL, setImageURL] = useState()
+    const [error, setError] = React.useState()
+    const [success, setSuccess] = React.useState()
+
+    const showError = ({message}) => {
+        setError(message)
+        setTimeout(() => {
+            setError("")
+        }, 5000)
+    }
+
+    const showSuccess = ({message}) => {
+        setSuccess(message)
+        setTimeout(() => {
+            setSuccess("")
+        }, 5000)
+    }
+
     const saveContact = () => {
         Meteor.call('contacts.insert', {name, email, imageURL}, (errorResponse) => {
             if (errorResponse) {
-                alert(errorResponse.error)
+                showError({message: errorResponse.error})
             } else {
+                showSuccess({message: "Contact added."})
                 setName("")
                 setEmail("")
                 setImageURL("")
@@ -19,6 +39,8 @@ export const ContactForm = () => {
 
     return (
         <form className="mt-6 px-64">
+            {success && <SuccessAlert message={success}/>}
+            {error && <ErrorAlert message={error}/>}
             <div className="grid grid-cols-6 gap-6">
                 <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                     <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
