@@ -18,7 +18,7 @@ export const ContactList = () => {
                         <li key={personIdx} className="py-4 flex items-center justify-between space-x-3">
                             <div className="min-w-0 flex-1 flex items-center space-x-3">
                                 <div className="flex-shrink-0">
-                                    <img className="h-10 w-10 rounded-full" src={person.imageUrl} alt=""/>
+                                    <img className="h-10 w-10 rounded-full" src={person.imageURL} alt=""/>
                                 </div>
                                 <div className="min-w-0 flex-1">
                                     <p className="text-sm font-medium text-gray-900 truncate">{person.name}</p>
