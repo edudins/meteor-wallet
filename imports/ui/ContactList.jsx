@@ -8,7 +8,7 @@ export const ContactList = () => {
     })
 
     return (
-        <div className="p-4">
+        <div className="px-64">
             <div className="mt-10">
                 <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
                     Contact List

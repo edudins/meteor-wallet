@@ -13,7 +13,7 @@ export const ContactForm = () => {
     }
 
     return (
-        <form className="mt-6 p-4">
+        <form className="mt-6 px-64">
             <div className="grid grid-cols-6 gap-6">
                 <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                     <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
