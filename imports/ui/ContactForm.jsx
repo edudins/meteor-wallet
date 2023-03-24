@@ -1,12 +1,12 @@
 import React, {useState} from "react"
-import {ContactsCollection} from "../api/ContactsCollection";
+import {Meteor} from "meteor/meteor"
 
 export const ContactForm = () => {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [imageURL, setImageURL] = useState()
     const saveContact = () => {
-        ContactsCollection.insert({name, email, imageURL})
+        Meteor.call('contacts.insert', {name, email, imageURL})
         setName("")
         setEmail("")
         setImageURL("")
