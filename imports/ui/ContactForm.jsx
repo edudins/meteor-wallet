@@ -4,11 +4,11 @@ import {ErrorAlert} from "./components/ErrorAlert"
 import {SuccessAlert} from "./components/SuccessAlert"
 
 export const ContactForm = () => {
-    const [name, setName] = useState()
-    const [email, setEmail] = useState()
-    const [imageURL, setImageURL] = useState()
-    const [error, setError] = React.useState()
-    const [success, setSuccess] = React.useState()
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [imageURL, setImageURL] = useState("")
+    const [error, setError] = React.useState("")
+    const [success, setSuccess] = React.useState("")
 
     const showError = ({message}) => {
         setError(message)
