@@ -4,7 +4,7 @@ import {useTracker} from 'meteor/react-meteor-data'
 
 export const ContactList = () => {
     const contacts = useTracker(() => {
-        return ContactsCollection.find().fetch() // Tracker - real time tracking system
+        return ContactsCollection.find({}, {sort: {createdAt: -1}}).fetch()
     })
 
     return (

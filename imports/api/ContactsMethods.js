@@ -5,6 +5,6 @@ Meteor.methods({
         if (!name) {
             throw new Meteor.Error("Name is required.")
         }
-        return ContactsCollection.insert({name, email, imageURL})
+        return ContactsCollection.insert({name, email, imageURL, createdAt: new Date()})
     }
 })
