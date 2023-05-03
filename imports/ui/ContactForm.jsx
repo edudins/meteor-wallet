@@ -38,7 +38,7 @@ export const ContactForm = () => {
     }
 
     return (
-        <form className="mt-6 px-64">
+        <form className="mt-6 px-36">
             {success && <SuccessAlert message={success}/>}
             {error && <ErrorAlert message={error}/>}
             <div className="grid grid-cols-6 gap-6">
