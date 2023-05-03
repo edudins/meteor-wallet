@@ -6,5 +6,9 @@ Meteor.methods({
             throw new Meteor.Error("Name is required.")
         }
         return ContactsCollection.insert({name, email, imageURL, createdAt: new Date()})
+    },
+
+    'contacts.remove'({contactId}) {
+        return ContactsCollection.remove(contactId)
     }
 })

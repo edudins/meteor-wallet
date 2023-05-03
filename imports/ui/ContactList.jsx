@@ -7,6 +7,11 @@ export const ContactList = () => {
         return ContactsCollection.find({}, {sort: {createdAt: -1}}).fetch()
     })
 
+    const removeContact = (event, _id) => {
+        event.preventDefault()
+        Meteor.call('contacts.remove', {contactId: _id})
+    }
+
     return (
         <div className="px-36">
             <div className="mt-10">
@@ -23,6 +28,13 @@ export const ContactList = () => {
                                 <div className="min-w-0 flex-1">
                                     <p className="text-sm font-medium text-gray-900 truncate">{person.name}</p>
                                     <p className="text-sm font-medium text-gray-500 truncate">{person.email}</p>
+                                </div>
+                                <div>
+                                    <a
+                                        href="#"
+                                        onClick={(event) => removeContact(event, person._id)}>
+                                        Remove
+                                    </a>
                                 </div>
                             </div>
                         </li>
