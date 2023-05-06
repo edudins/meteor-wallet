@@ -32,7 +32,8 @@ export const ContactList = () => {
                                 <div>
                                     <a
                                         href="#"
-                                        onClick={(event) => removeContact(event, person._id)}>
+                                        onClick={(event) => removeContact(event, person._id)}
+                                        className="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50">
                                         Remove
                                     </a>
                                 </div>
